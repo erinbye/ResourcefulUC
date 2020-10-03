@@ -27,9 +27,9 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
         {home ? (
           <>
-            <ul>
-              <li>
-                <Link href="/posts/map">
+            <ul className={styles.navBar}>
+              <li className={styles.navButton}>
+                <Link href="/map">
                   <a>Map</a>
                 </Link>
               </li>
