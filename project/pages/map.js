@@ -53,7 +53,15 @@ const GMap = () => {
       infowindow.open(googleMap, marker);
     });
   };
-  return <div ref={googleMapRef} style={{ width: 800, height: 600 }} />;
+  return (
+    <div
+      ref={googleMapRef}
+      style={{
+        width: "100%",
+        height: 550,
+      }}
+    />
+  );
 };
 
 // const GeoMap = () => {

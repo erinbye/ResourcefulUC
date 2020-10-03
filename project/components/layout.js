@@ -26,18 +26,22 @@ export default function Layout({ children, home }) {
       </Head>
       <header className={styles.header}>
         {home ? (
-          <div className={styles.headerContainer}>
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-            <div className={styles.headerBigRectangle}></div>
-            <div className={styles.headerSmallRectangle}></div>
-            <ul className={styles.navBar}>
-              <li className={styles.navButton}>
-                <Link href="/map">
-                  <a>Map</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <>
+            <div className={styles.headerContainer}>
+              <h1 className={utilStyles.heading2Xl}>{name}</h1>
+              <div className={styles.headerBigRectangle}></div>
+              <div className={styles.headerSmallRectangle}></div>
+            </div>
+            <div>
+              <ul className={styles.navBar}>
+                <li className={styles.navButton}>
+                  <Link href="/map">
+                    <a>Map</a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </>
         ) : (
           <div className={styles.headerContainer}>
             <h1 className={utilStyles.heading2Xl}>
@@ -52,7 +56,7 @@ export default function Layout({ children, home }) {
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div>
           <Link href="/">
             <a>← Back to home</a>
           </Link>

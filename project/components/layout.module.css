@@ -1,5 +1,5 @@
 .container {
-  max-width: 36rem;
+  max-height: 30rem;
   padding: 0 1rem;
   margin: 3rem auto 6rem;
 }
@@ -11,7 +11,9 @@
 }
 
 .headerContainer {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: #000;
   margin-bottom: 40px;
@@ -58,8 +60,4 @@
 .navButton:hover {
   background-color: #f1f1f1;
   border-radius: 10px;
-}
-
-.backToHome {
-  margin: 3rem 0 0;
 }
