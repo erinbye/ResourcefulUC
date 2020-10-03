@@ -10,11 +10,38 @@
   align-items: center;
 }
 
+.headerContainer {
+  position: relative;
+  text-align: center;
+  color: #000;
+  margin-bottom: 40px;
+  text-shadow: 0 0 3px white;
+}
+
+.headerBigRectangle {
+  position: fixed;
+  top: 105px;
+  right: center;
+  height: 40px;
+  width: 500px;
+  background-color: #e00122;
+  z-index: -1;
+}
+.headerSmallRectangle {
+  position: fixed;
+  top: 140px;
+  right: center;
+  height: 10px;
+  width: 500px;
+  background-color: #b8011c;
+  z-index: -1;
+}
+
 .navBar {
   list-style-type: none;
-  margin: 0;
+  margin-top: 50px;
   padding: 0;
-  width: 60px;
+  width: 300px;
   text-align: center;
   border-color: black;
   border-style: solid;

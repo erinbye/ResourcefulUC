@@ -26,7 +26,10 @@ export default function Layout({ children, home }) {
       </Head>
       <header className={styles.header}>
         {home ? (
-          <>
+          <div className={styles.headerContainer}>
+            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <div className={styles.headerBigRectangle}></div>
+            <div className={styles.headerSmallRectangle}></div>
             <ul className={styles.navBar}>
               <li className={styles.navButton}>
                 <Link href="/map">
@@ -34,16 +37,17 @@ export default function Layout({ children, home }) {
                 </Link>
               </li>
             </ul>
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
+          </div>
         ) : (
-          <>
-            <h2 className={utilStyles.headingLg}>
+          <div className={styles.headerContainer}>
+            <h1 className={utilStyles.heading2Xl}>
               <Link href="/">
                 <a className={utilStyles.colorInherit}>{name}</a>
               </Link>
-            </h2>
-          </>
+            </h1>
+            <div className={styles.headerBigRectangle}></div>
+            <div className={styles.headerSmallRectangle}></div>
+          </div>
         )}
       </header>
       <main>{children}</main>
