@@ -40,7 +40,7 @@ const GMap = () => {
     // Display a map on the web page
     map = new google.maps.Map(googleMapRef.current, mapOptions);
 
-    const markers = data.resources.parkingGarages;
+    const markers = data.resources.parkingGarages.coordinates;
 
     let infoWindow = new google.maps.InfoWindow();
     let marker, i;
@@ -89,6 +89,14 @@ const GMap = () => {
           height: 550,
         }}
       />
+      <ul>
+        <li style={{ display: "inline", padding: "5px" }}>
+          <button>{data.resources.parkingGarages.name}</button>
+        </li>
+        <li style={{ display: "inline", padding: "5px" }}>
+          <button>{data.resources.gnBathrooms.name}</button>
+        </li>
+      </ul>
     </>
   );
 };

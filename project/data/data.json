@@ -1,12 +1,19 @@
 {
   "resources": {
-    "parkingGarages": [
-      ["University Avenue Garage", 39.134109, -84.511463],
-      ["Campus Green Garage", 39.134962, -84.514446],
-      ["Woodside Garage", 39.134846, -84.515125],
-      ["Corry Garage", 39.129159, -84.513047],
-      ["Calhoun Garage", 39.128566, -84.516217],
-      ["CCM Garage", 39.129985, -84.517014]
-    ]
+    "parkingGarages": {
+      "name": "Parking Garages",
+      "coordinates": [
+        ["University Avenue Garage", 39.134109, -84.511463],
+        ["Campus Green Garage", 39.134962, -84.514446],
+        ["Woodside Garage", 39.134846, -84.515125],
+        ["Corry Garage", 39.129159, -84.513047],
+        ["Calhoun Garage", 39.128566, -84.516217],
+        ["CCM Garage", 39.129985, -84.517014]
+      ]
+    },
+    "gnBathrooms": {
+      "name": "Gender Neutral Bathrooms",
+      "coordinates": []
+    }
   }
 }
