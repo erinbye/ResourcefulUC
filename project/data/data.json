@@ -13,7 +13,15 @@
     },
     "gnBathrooms": {
       "name": "Gender Neutral Bathrooms",
-      "coordinates": [["University Avenue Garage", 39.134109, -84.511463]]
+      "coordinates": [["TUC 3rd floor", 39.131642, -84.517561]]
+    },
+    "printerStations": {
+      "name": "Printing Stations",
+      "coordinates": [
+        ["TUC", 39.1317717, -84.5174673],
+        ["Swift Hall 6th floor", 39.132588, -84.517407],
+        ["Langsam Library 4th floor", 39.134172, -84.515677]
+      ]
     }
   }
 }

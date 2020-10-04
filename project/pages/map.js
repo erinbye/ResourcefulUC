@@ -61,6 +61,11 @@ const GMap = () => {
             <a>{data.resources.gnBathrooms.name}</a>
           </Link>
         </li>
+        <li style={{ display: "inline", padding: "5px" }}>
+          <Link href="/printerMap">
+            <a>{data.resources.printerStations.name}</a>
+          </Link>
+        </li>
       </ul>
     </>
   );

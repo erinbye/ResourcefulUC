@@ -36,7 +36,7 @@ const GMap = () => {
       mapTypeId: "roadmap",
       center: { lat: 39.132316, lng: -84.515017 },
     };
-    const coords = data.resources.gnBathrooms.coordinates;
+    const coords = data.resources.printerStations.coordinates;
 
     // Display a map on the web page
     map = new google.maps.Map(googleMapRef.current, mapOptions);

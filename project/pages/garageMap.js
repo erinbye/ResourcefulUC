@@ -99,56 +99,15 @@ const GMap = () => {
             <a>{data.resources.gnBathrooms.name}</a>
           </Link>
         </li>
+        <li style={{ display: "inline", padding: "5px" }}>
+          <Link href="/printerMap">
+            <a>{data.resources.printerStations.name}</a>
+          </Link>
+        </li>
       </ul>
     </>
   );
 };
-
-// WIP, getting the user's location
-// const GeoMap = () => {
-//   const googleMapRef = useRef(null);
-//   let map, infoWindow;
-
-//   function initMap() {
-//     map = new window.google.maps.Map(googleMapRef.current, {
-//       center: { lat: 39.132327, lng: -84.515046 },
-//       zoom: 6,
-//     });
-//     infoWindow = new window.google.maps.InfoWindow();
-
-//     // Try HTML5 geolocation.
-//     if (navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition(
-//         (position) => {
-//           const pos = {
-//             lat: position.coords.latitude,
-//             lng: position.coords.longitude,
-//           };
-//           infoWindow.setPosition(pos);
-//           infoWindow.setContent("Location found.");
-//           infoWindow.open(map);
-//           map.setCenter(pos);
-//         },
-//         () => {
-//           handleLocationError(true, infoWindow, map.getCenter());
-//         }
-//       );
-//     } else {
-//       // Browser doesn't support Geolocation
-//       handleLocationError(false, infoWindow, map.getCenter());
-//     }
-//   }
-//   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-//     infoWindow.setPosition(pos);
-//     infoWindow.setContent(
-//       browserHasGeolocation
-//         ? "Error: The Geolocation service failed."
-//         : "Error: Your browser doesn't support geolocation."
-//     );
-//     infoWindow.open(map);
-//   }
-//   return <div ref={googleMapRef} style={{ width: 600, height: 500 }} />;
-// };
 
 export default function Map() {
   const [loadMap, setLoadMap] = useState(false);
