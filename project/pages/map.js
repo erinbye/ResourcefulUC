@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import React, { useState, useEffect, useRef } from "react";
 import data from "../data/data.json";
 
-// how to add google maps with react resource: https://www.cluemediator.com/implement-google-maps-in-reactjs
+// how to add google maps with react resource: https://www.codexworld.com/google-maps-with-multiple-markers-using-javascript-api/
 
 const GOOGLE_MAP_API_KEY = "AIzaSyD78WeSwW_vaPexydOldzEwDrAj81r0lvE";
 
@@ -40,7 +40,7 @@ const GMap = () => {
     // Display a map on the web page
     map = new google.maps.Map(googleMapRef.current, mapOptions);
 
-    const markers = data.parkingGarages;
+    const markers = data.resources.parkingGarages;
 
     let infoWindow = new google.maps.InfoWindow();
     let marker, i;
@@ -81,16 +81,19 @@ const GMap = () => {
   };
 
   return (
-    <div
-      ref={googleMapRef}
-      style={{
-        width: "100%",
-        height: 550,
-      }}
-    />
+    <>
+      <div
+        ref={googleMapRef}
+        style={{
+          width: "100%",
+          height: 550,
+        }}
+      />
+    </>
   );
 };
 
+// WIP, getting the user's location
 // const GeoMap = () => {
 //   const googleMapRef = useRef(null);
 //   let map, infoWindow;
