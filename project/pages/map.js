@@ -23,36 +23,69 @@ const loadGoogleMapScript = (callback) => {
 
 const GMap = () => {
   const googleMapRef = useRef(null);
-  let googleMap = null;
-  let marker = null;
 
   useEffect(() => {
-    googleMap = initGoogleMap();
-    marker = createMarker();
-    addListeners();
+    initGoogleMap();
   }, []);
 
   const initGoogleMap = () => {
-    return new window.google.maps.Map(googleMapRef.current, {
-      center: { lat: 39.132327, lng: -84.515046 },
-      zoom: 15,
-    });
+    let map = null;
+    const bounds = new google.maps.LatLngBounds();
+    const mapOptions = {
+      mapTypeId: "roadmap",
+      center: { lat: 39.132316, lng: -84.515017 },
+    };
+
+    // Display a map on the web page
+    map = new google.maps.Map(googleMapRef.current, mapOptions);
+
+    const markers = [
+      ["University Avenue Garage", 39.134109, -84.511463],
+      ["Campus Green Garage", 39.134962, -84.514446],
+      ["Woodside Garage", 39.134846, -84.515125],
+      ["Corry Garage", 39.129159, -84.513047],
+      ["Calhoun Garage", 39.128566, -84.516217],
+      ["CCM Garage", 39.129985, -84.517014],
+    ];
+
+    let infoWindow = new google.maps.InfoWindow();
+    let marker, i;
+
+    for (i = 0; i < markers.length; i++) {
+      const position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+      bounds.extend(position);
+      marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: markers[i][0],
+      });
+
+      const content = "<h3>" + markers[i][0] + "</h3>";
+
+      google.maps.event.addListener(
+        marker,
+        "click",
+        (function (marker, i) {
+          return function () {
+            infoWindow.setContent(content);
+            infoWindow.open(map, marker);
+          };
+        })(marker, i)
+      );
+
+      map.fitBounds(bounds);
+    }
+
+    const boundsListener = google.maps.event.addListener(
+      map,
+      "bounds_changed",
+      function (event) {
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+      }
+    );
   };
-  const createMarker = () => {
-    return new window.google.maps.Marker({
-      position: { lat: 39.132327, lng: -84.515046 },
-      map: googleMap,
-      //animation: google.maps.Animation.BOUNCE,
-    });
-  };
-  const infowindow = new google.maps.InfoWindow({
-    content: "University of Cincinnati",
-  });
-  const addListeners = () => {
-    google.maps.event.addListener(marker, "click", function () {
-      infowindow.open(googleMap, marker);
-    });
-  };
+
   return (
     <div
       ref={googleMapRef}
