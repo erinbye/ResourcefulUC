@@ -13,7 +13,10 @@
     },
     "gnBathrooms": {
       "name": "Gender Neutral Bathrooms",
-      "coordinates": [["TUC 3rd floor", 39.131642, -84.517561]]
+      "coordinates": [
+        ["TUC 3rd floor", 39.131642, -84.517561],
+        ["French Hall", 39.132343, -84.513093]
+      ]
     },
     "printerStations": {
       "name": "Printing Stations",

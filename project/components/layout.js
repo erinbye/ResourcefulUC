@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+import data from "../data/data.json";
 
 const name = "UC Pocket Reservoir";
 export const siteTitle = "UC Pocket Reservoir";
@@ -43,15 +44,34 @@ export default function Layout({ children, home }) {
             </div>
           </>
         ) : (
-          <div className={styles.headerContainer}>
-            <h1 className={utilStyles.heading2Xl}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h1>
-            <div className={styles.headerBigRectangle}></div>
-            <div className={styles.headerSmallRectangle}></div>
-          </div>
+          <>
+            <div className={styles.headerContainer}>
+              <h1 className={utilStyles.heading2Xl}>
+                <Link href="/">
+                  <a className={utilStyles.colorInherit}>{name}</a>
+                </Link>
+              </h1>
+              <div className={styles.headerBigRectangle}></div>
+              <div className={styles.headerSmallRectangle}></div>
+            </div>
+            <ul className={styles.resourceList}>
+              <li style={{ display: "inline", padding: "5px" }}>
+                <Link href="/garageMap">
+                  <a>{data.resources.parkingGarages.name}</a>
+                </Link>
+              </li>
+              <li style={{ display: "inline", padding: "5px" }}>
+                <Link href="/bathroomMap">
+                  <a>{data.resources.gnBathrooms.name}</a>
+                </Link>
+              </li>
+              <li style={{ display: "inline", padding: "5px" }}>
+                <Link href="/printerMap">
+                  <a>{data.resources.printerStations.name}</a>
+                </Link>
+              </li>
+            </ul>
+          </>
         )}
       </header>
       <main>{children}</main>

@@ -41,7 +41,6 @@
 
 .navBar {
   list-style-type: none;
-  margin-top: 50px;
   padding: 0;
   width: 300px;
   text-align: center;
@@ -60,4 +59,11 @@
 .navButton:hover {
   background-color: #f1f1f1;
   border-radius: 10px;
+}
+
+.resourceList {
+  list-style-type: none;
+  padding: 0;
+  width: 600px;
+  text-align: center;
 }

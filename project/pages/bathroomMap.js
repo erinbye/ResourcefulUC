@@ -80,32 +80,13 @@ const GMap = () => {
   };
 
   return (
-    <>
-      <div
-        ref={googleMapRef}
-        style={{
-          width: "100%",
-          height: 550,
-        }}
-      />
-      <ul>
-        <li style={{ display: "inline", padding: "5px" }}>
-          <Link href="/garageMap">
-            <a>{data.resources.parkingGarages.name}</a>
-          </Link>
-        </li>
-        <li style={{ display: "inline", padding: "5px" }}>
-          <Link href="/bathroomMap">
-            <a>{data.resources.gnBathrooms.name}</a>
-          </Link>
-        </li>
-        <li style={{ display: "inline", padding: "5px" }}>
-          <Link href="/printerMap">
-            <a>{data.resources.printerStations.name}</a>
-          </Link>
-        </li>
-      </ul>
-    </>
+    <div
+      ref={googleMapRef}
+      style={{
+        width: "100%",
+        height: 550,
+      }}
+    />
   );
 };
 
