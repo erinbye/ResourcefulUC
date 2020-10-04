@@ -2,6 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 import Layout from "../components/layout";
 import React, { useState, useEffect, useRef } from "react";
+import data from "../data/data.json";
 
 // how to add google maps with react resource: https://www.cluemediator.com/implement-google-maps-in-reactjs
 
@@ -39,14 +40,7 @@ const GMap = () => {
     // Display a map on the web page
     map = new google.maps.Map(googleMapRef.current, mapOptions);
 
-    const markers = [
-      ["University Avenue Garage", 39.134109, -84.511463],
-      ["Campus Green Garage", 39.134962, -84.514446],
-      ["Woodside Garage", 39.134846, -84.515125],
-      ["Corry Garage", 39.129159, -84.513047],
-      ["Calhoun Garage", 39.128566, -84.516217],
-      ["CCM Garage", 39.129985, -84.517014],
-    ];
+    const markers = data.parkingGarages;
 
     let infoWindow = new google.maps.InfoWindow();
     let marker, i;
