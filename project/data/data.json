@@ -13,7 +13,7 @@
     },
     "gnBathrooms": {
       "name": "Gender Neutral Bathrooms",
-      "coordinates": []
+      "coordinates": [["University Avenue Garage", 39.134109, -84.511463]]
     }
   }
 }

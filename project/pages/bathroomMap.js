@@ -31,14 +31,52 @@ const GMap = () => {
 
   const initGoogleMap = () => {
     let map = null;
+    const bounds = new google.maps.LatLngBounds();
     const mapOptions = {
       mapTypeId: "roadmap",
       center: { lat: 39.132316, lng: -84.515017 },
-      zoom: 15,
     };
+    const coords = data.resources.gnBathrooms.coordinates;
 
     // Display a map on the web page
     map = new google.maps.Map(googleMapRef.current, mapOptions);
+
+    let infoWindow = new google.maps.InfoWindow();
+    let marker, i;
+
+    for (i = 0; i < coords.length; i++) {
+      const position = new google.maps.LatLng(coords[i][1], coords[i][2]);
+      bounds.extend(position);
+      marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: coords[i][0],
+      });
+
+      const content = "<h3>" + coords[i][0] + "</h3>";
+
+      google.maps.event.addListener(
+        marker,
+        "click",
+        (function (marker, i) {
+          return function () {
+            infoWindow.setContent(content);
+            infoWindow.open(map, marker);
+          };
+        })(marker, i)
+      );
+
+      map.fitBounds(bounds);
+    }
+
+    const boundsListener = google.maps.event.addListener(
+      map,
+      "bounds_changed",
+      function (event) {
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+      }
+    );
   };
 
   return (
